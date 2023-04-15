@@ -2,15 +2,13 @@ import React from 'react';
 import '../stylesheets/app.css';
 
 const Greeting = (props) => {
-	console.log(props);
-	const clickHandler = () => {
-		alert('you have clicked the greeting');
-	};
+	// console.log(props);
+	// const clickHandler = () => {
+	// 	alert('you have clicked the greeting');
+	// };
 	return (
 		<React.Fragment>
-			<h3 className="heading" onClick={clickHandler}>
-				hello {props.name}
-			</h3>
+			<h3 className="heading">hello {props.name}</h3>
 			<h3>bye {props.name}</h3>
 		</React.Fragment>
 	);

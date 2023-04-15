@@ -12,6 +12,9 @@ root.render(
 		<Greeting name="mno" />
 		<Greeting name="xyz" />
 		<List />
-		<Counter />
+		<Counter>
+			<h1>inside counter custom component</h1>
+			<p>paragraph inside custom component</p>
+		</Counter>
 	</React.StrictMode>
 );

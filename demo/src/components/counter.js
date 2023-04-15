@@ -1,18 +1,43 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-class Counter extends React.Component {
-	i = 0;
-	clickHandler = () => {
-		this.i += 1;
+// class Counter extends React.PureComponent {
+// 	state = {
+// 		name: 'john'
+// 	};
+// 	clickHandler = () => {
+// 		this.setState({
+// 			name: 'abcd'
+// 		});
+// 	};
+// 	// shouldComponentUpdate(nextProps, nextState) {
+// 	// 	if (this.state.name === nextState.name) {
+// 	// 		return false;
+// 	// 	}
+// 	// 	return true;
+// 	// }
+// 	render() {
+// 		console.log('rendering the page');
+// 		return (
+// 			<React.Fragment>
+// 				<div>name is: {this.state.name}</div>
+// 				<button onClick={this.clickHandler}>click me to change name</button>
+// 			</React.Fragment>
+// 		);
+// 	}
+// }
+
+const Counter = (props) => {
+	const [ cnt, setCnt ] = useState(props.initialValue);
+	const clickHandler = () => {
+		setCnt(cnt + 1);
 	};
-	render() {
-		return (
-			<React.Fragment>
-				<div>pressed: {this.i} times</div>
-				<button onClick={this.clickHandler}>click me</button>
-			</React.Fragment>
-		);
-	}
-}
+	return (
+		<React.Fragment>
+			<div>pressed: {cnt} times</div>
+			<button onClick={clickHandler}>click me</button>
+			{props.children}
+		</React.Fragment>
+	);
+};
 
 export default Counter;
