@@ -4,19 +4,19 @@ import * as Yup from 'yup';
 import emailjs from 'emailjs-com';
 
 import Alert from 'react-bootstrap/Alert';
-
+import { showToast } from './utils/showToast';
 const Contact = () => {
 	function sendEmail(event) {
 		emailjs.sendForm('service_9idyeci', 'template_6p745fc', event.target, 'jMl9sjAmdQ7Yq-Xh0').then(
 			(result) => {
-				console.log(result);
+				showToast('success', 'successfully sent the email');
 			},
 			(error) => {
 				console.log(error.text);
+				showToast('error', 'something went wrong, please try again later');
 			}
 		);
 	}
-
 	const formik = useFormik({
 		initialValues: {
 			name: '',

@@ -8,11 +8,14 @@ import NewNews from './components/NewNews';
 import EditNews from './components/EditNews';
 import ShowNews from './components/ShowNews';
 import NavBar from './components/NavBar';
+import Toast from './components/utils/Toast';
+import PageNotFound from './components/pageNotFound';
 
 const AppRoute = () => {
 	return (
 		<BrowserRouter>
 			<NavBar />
+			<Toast />
 			<Container>
 				<Routes>
 					<Route path="/" element={<Home />} />
@@ -20,6 +23,7 @@ const AppRoute = () => {
 					<Route path="/news/new" element={<NewNews />} />
 					<Route path="/news/:id" element={<ShowNews />} />
 					<Route path="/news/:id/edit" element={<EditNews />} />
+					<Route path="*" element={<PageNotFound />} />
 				</Routes>
 			</Container>
 		</BrowserRouter>

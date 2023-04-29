@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const getNewsItemsHelper = async () => {
 	try {
-		const response = await axios.get('https://jsonplaceholder.typicode.com/posts');
+		const response = await axios.get('/api/news');
 		return {
 			news: response.data
 		};
@@ -13,7 +13,7 @@ const getNewsItemsHelper = async () => {
 
 const getNewsItemByIdHelper = async (id) => {
 	try {
-		const response = await axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`);
+		const response = await axios.get(`/api/news/${id}`);
 		return {
 			newsItem: response.data
 		};
